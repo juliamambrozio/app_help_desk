@@ -1,3 +1,6 @@
+
+
+
 <html>
   <head>
     <meta charset="utf-8" />
@@ -39,6 +42,17 @@
                 <div class="form-group">
                   <input name="senha" type="password" class="form-control" placeholder="Senha">
                 </div>
+
+     <!--  isset(): verifica a existência de um índice antes mesmo de ver se existe -->
+      <?php if(isset($_GET['login']) && $_GET['login'] == 'erro'){?>
+
+      <div class="text-danger">
+        Usuário ou senha inválido(s)
+      </div>
+
+      <?php  } ?> <!-- Para colocar HTML dentro de uma verificação -->
+
+
                 <button class="btn btn-lg btn-info btn-block" type="submit">Entrar</button>
               </form>
             </div>
