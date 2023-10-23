@@ -1,4 +1,8 @@
+<?php
 
+session_start();
+$_SESSION['autenticado'];
+?>
 
 
 <html>
@@ -51,6 +55,14 @@
       </div>
 
       <?php  } ?> <!-- Para colocar HTML dentro de uma verificação -->
+
+      <?php if(isset($_GET['login']) && $_GET['login'] == 'erro2'){ //erro2: para sinalizar o erro quando tentar acessar sem fazer login?>
+
+<div class="text-danger">
+ Faça login antes de acessar as páginas.
+</div> 
+
+<?php  } ?>
 
 
                 <button class="btn btn-lg btn-info btn-block" type="submit">Entrar</button>

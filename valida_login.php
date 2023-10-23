@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 //var que identifica se a autenticação foi aceita
 
 $usuario_autenticado = false;
@@ -22,9 +24,11 @@ foreach($usuarios_app as $user){ //analisa de forma individual
 
 if($usuario_autenticado){
     echo 'Usuário autenticado.';
+    $_SESSION['autenticado'] = 'Sim';
     
 }else{
     header('Location: index.php?login=erro'); //força o redirecionamento
+    $_SESSION['autenticado'] = 'Não';
 }
 
 /* print_r($_POST);
