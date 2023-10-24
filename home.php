@@ -1,10 +1,5 @@
 <?php
-
-session_start();
-if(!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'Sim'){
-  header('Location: index.php?login=erro2');
-  
-} //se o login for errado e não salvar as informações, irá ser redireiconado ao login
+require_once("validador_acesso.php") //incorporando a session
 ?>
 <html>
   <head>
@@ -42,10 +37,10 @@ if(!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'Sim'){
             <div class="card-body">
               <div class="row">
                 <div class="col-6 d-flex justify-content-center">
-                  <img src="formulario_abrir_chamado.png" width="70" height="70">
+                  <a href="abrir_chamado.php"><img src="formulario_abrir_chamado.png" width="70" height="70"></a>
                 </div>
                 <div class="col-6 d-flex justify-content-center">
-                  <img src="formulario_consultar_chamado.png" width="70" height="70">
+                  <a href="consultar_chamado.php"><img src="formulario_consultar_chamado.png" width="70" height="70"></a>
                 </div>
               </div>
             </div>

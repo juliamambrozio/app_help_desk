@@ -25,6 +25,7 @@ foreach($usuarios_app as $user){ //analisa de forma individual
 if($usuario_autenticado){
     echo 'Usuário autenticado.';
     $_SESSION['autenticado'] = 'Sim';
+    header('Location: home.php');
     
 }else{
     header('Location: index.php?login=erro'); //força o redirecionamento
