@@ -1,5 +1,7 @@
 <?php
-require_once("validador_acesso.php") //incorporando a session
+require_once("validador_acesso.php"); //incorporando a session
+
+print_r($_SESSION);
 ?>
 <html>
   <head>

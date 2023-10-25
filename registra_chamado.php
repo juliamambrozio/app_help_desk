@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 //CRIAÇÃO DE ARQUIVOS
 
 print_r($_POST);
@@ -12,7 +14,7 @@ $descricao = str_replace('#', '-',$_POST['descricao']); //modificando se caso o 
 
 //implode('#', $_POST)
 
-$texto = $titulo . '#' .$categoria. '#' .$descricao . PHP_EOL; //PHP_EOL: armazena o caracter de quebra de linha
+$texto =  $_SESSION['id'] . '#' .$titulo . '#' .$categoria. '#' .$descricao . PHP_EOL; //PHP_EOL: armazena o caracter de quebra de linha
 
 //abrindo arquivo
 $arquivo = fopen('arquivo.txt','a'); //abre um novo arquivo, a = abre apenas para escrita
