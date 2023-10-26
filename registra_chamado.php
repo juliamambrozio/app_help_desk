@@ -17,7 +17,7 @@ $descricao = str_replace('#', '-',$_POST['descricao']); //modificando se caso o 
 $texto =  $_SESSION['id'] . '#' .$titulo . '#' .$categoria. '#' .$descricao . PHP_EOL; //PHP_EOL: armazena o caracter de quebra de linha
 
 //abrindo arquivo
-$arquivo = fopen('arquivo.txt','a'); //abre um novo arquivo, a = abre apenas para escrita
+$arquivo = fopen('../../app_help_desk/arquivo.txt','a'); //abre um novo arquivo, a = abre apenas para escrita
 
 //editando arquivo
 fwrite($arquivo, $texto); //qual arquivo e o que eu quero escrever

@@ -8,26 +8,14 @@ require_once("validador_acesso.php") //incorporando a session
 
 $chamados = array();
 //abrir arquivo
-$arquivo = fopen('arquivo.txt', 'r'); //r = exibir
+$arquivo = fopen('../../app_help_desk/arquivo.txt', 'r'); //r = exibir
 
 while(!feof($arquivo)){ //feof = percorre um arquivo até seu final, ! para passar de false para true indicando se é o final ou não
   //linhas
   $registro = fgets($arquivo); //recupera o que estiver na linha
 
-  $registro_detalhes = explode('#', $registro);
-
-
-  //lógica para exibição de conteúdo de acordo com o login
-              if($_SESSION['perfil_id'] == 2){
-                //só vamos exibir o chamado se foi criado pelo usuário
-                if($_SESSION['id'] != $registro_detalhes[0]){
-                  continue; //vai ignorar as publicações que não são iguais ao id da pessoa que publicou
-                }else {
-                  $chamados[] = $registro; //adiciona o registro do arquivo ao array $chamados
-                }
-          
-              } 
-          }
+  $chamados[] = $registro;
+}
 
 
 //fechar o arquivo aberto
@@ -79,8 +67,16 @@ fclose($arquivo);
             <?php foreach($chamados as $chamado){ ?>
               <?php
               
-
               $chamado_dados = explode('#', $chamado);
+
+              //lógica para exibição de conteúdo de acordo com o login
+              if($_SESSION['perfil_id'] == 2){
+                //só vamos exibir o chamado se foi criado pelo usuário
+                if($_SESSION['id'] != $chamado_dados[0]){
+                  continue; //vai ignorar as publicações que não são iguais ao id da pessoa que publicou
+                }
+          
+              } 
 
               
 
